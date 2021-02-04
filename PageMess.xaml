@@ -1,0 +1,57 @@
+﻿<Page x:Class="MyProject.Pages.PageMess"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyProject.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="PageMess">
+
+    <Grid>
+        <ListView x:Name="LVMess" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="White" BorderBrush="#2C6450" Margin="0,0,0,63"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#FF265A1A"
+                                BorderThickness="1"
+                                Height="100"
+                                Width="420">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="10*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Margin="8 1"
+                                       Stretch="Uniform"
+                                       Grid.Column="0">
+                                <Image.Source>
+                                    <Binding Path="Mimage">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Resource/c-sharp-500.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel Grid.Column="1"
+                                            VerticalAlignment="Center" >
+                                <TextBlock Text="{Binding UserMess}" FontFamily="Bradley Hand ITC" Foreground="#FF265A1A" FontSize="15" Margin="0 0 0 20"/>
+                                <TextBlock Text="{Binding Mess1}" TextWrapping="Wrap" Background="#FFD8DECC" FontFamily="Bradley Hand ITC" Foreground="#2C6450" Margin="5 0 5 0"/>
+
+                            </StackPanel>
+
+
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button BorderBrush="#FF265A1A" 
+                Background="#FF265A1A" 
+                FontSize="25"
+                FontFamily="Bradley Hand ITC"
+                Foreground="#FFE2EAD4"
+                Content="ENTER" 
+                Margin="25 409 25 10" Click="Button_Click" />
+    </Grid>
+</Page>

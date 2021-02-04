@@ -1,0 +1,73 @@
+﻿<Page x:Class="MyProject.Pages.PageAccounts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyProject.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="PageAccounts">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="367*"/>
+        </Grid.RowDefinitions>
+        <Grid
+              Background="#FFE2EAD4" Grid.RowSpan="2">
+            <ListView x:Name="lvClient" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#FF6BA18E" BorderBrush="#2C6450" SelectionChanged="lvClient_SelectionChanged" Margin="10,96,10,122">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="White"
+                                BorderThickness="1"
+                                CornerRadius="35"
+                                Height="100"
+                                Width="200">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Margin="10"
+                                       Stretch="Uniform"
+                                       Grid.Column="0">
+                                    <Image.Source>
+                                        <Binding Path="lImage">
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>/Resource/c-sharp-500.png</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                                <StackPanel Grid.Column="1"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=lName}" FontFamily="Bradley Hand ITC" Foreground="#FFD8F1C5" FontSize="15" Margin="5 0 5 0"/>
+                                    <TextBlock Text="{Binding Path=lNameS}" FontFamily="Bradley Hand ITC" Foreground="White" Margin="5 0 5 0"/>
+                                    <TextBlock Text="{Binding Path=lLoginName}" FontFamily="Bradley Hand ITC" Foreground="White" Margin="5 0 5 0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Button x:Name="Enter" 
+                Margin="10,287.667,281,50" 
+                Content="ENTER"
+                FontSize="19"
+                FontFamily="Bradley Hand ITC"
+                Foreground="#FFE2EAD4"
+                Background="#2C6450"
+                BorderBrush="#2C6450" Click="Enter_Click" Grid.Row="1"/>
+
+        <TextBlock Text="Login as:"
+                   Background="#FFA9B6A4"
+                   Margin="10,31,10,10.333"
+                   Grid.Row="0"
+                   FontSize="25"
+                   Foreground="#FF141F00"
+                   FontFamily="Bradley Hand ITC"/>
+
+    </Grid>
+
+</Page>
